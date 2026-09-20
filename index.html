@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thai Food · A guide for curious eaters</title>
+  <meta name="description" content="A friendly guide to Thai dishes: what they taste like, how spicy they are, and how to order them.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Thai Food <small lang="th">อาหารไทย</small></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="dishes.html">Dishes</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1>New to Thai food? Start here.</h1>
+        <p>Find out what each dish is, how spicy it usually comes, how to say its name and how to order it like you know what you’re doing.</p>
+        <a class="button light" href="dishes.html">Browse all dishes</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Dishes to try first</h2>
+        <p class="lead">A few well-loved dishes, from mild to fiery. Search or filter to look through every dish.</p>
+
+        <div class="filters">
+          <div class="field-wide">
+            <label for="search">Search</label>
+            <input type="search" id="search" placeholder="e.g. pad thai, ต้มยำ, som tam" autocomplete="off">
+          </div>
+          <div>
+            <span class="filter-title" id="category-title">Category</span>
+            <div class="chips" id="category-filter" role="group" aria-labelledby="category-title"></div>
+          </div>
+          <div>
+            <span class="filter-title" id="spice-title">Spice level</span>
+            <div class="chips" id="spice-filter" role="group" aria-labelledby="spice-title"></div>
+          </div>
+          <div class="filter-foot">
+            <span id="result-count" aria-live="polite"></span>
+            <button type="button" class="link-button" id="reset-filters">Reset filters</button>
+          </div>
+        </div>
+
+        <div class="grid" id="dish-grid" data-default="featured"></div>
+        <div class="empty" id="no-results" hidden>
+          <p><strong>No dishes match your search.</strong></p>
+          <p>Try a different word, or <button type="button" class="link-button" onclick="document.getElementById('reset-filters').click()">reset the filters</button>.</p>
+        </div>
+        <p class="center"><a class="button" href="dishes.html">See every dish</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Thai Food</strong> · <span lang="th">อาหารไทย</span></p>
+      <p>A general guide, not allergy or dietary advice. <a href="about.html">Learn more</a></p>
+    </div>
+  </footer>
+
+  <script src="dishes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
