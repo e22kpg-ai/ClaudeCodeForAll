@@ -1,0 +1,86 @@
+/* Menu page. Builds on the variables in style.css. */
+
+.menu-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 8px;
+}
+.menu-jump a {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.menu-jump a:hover { border-color: var(--orange); color: var(--chili); }
+
+.menu-section { margin-top: 36px; scroll-margin-top: 16px; }
+.menu-section h2 {
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--turmeric);
+  font-family: var(--font-display);
+  color: var(--chili);
+}
+
+.menu-list { list-style: none; margin: 0; padding: 0; }
+
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.menu-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  min-width: 0;
+}
+.menu-name {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.menu-name:hover { color: var(--chili); text-decoration: underline; }
+.menu-main .spice { flex-basis: 100%; }
+
+.menu-dots {
+  flex: 1 1 24px;
+  align-self: flex-end;
+  margin-bottom: 0.4em;
+  border-bottom: 2px dotted var(--line);
+  min-width: 24px;
+}
+
+.menu-price {
+  flex: none;
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--chili);
+  font-variant-numeric: tabular-nums;
+}
+.menu-unit {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.menu-note {
+  margin: 32px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  .menu-dots { display: none; }
+  .menu-row { justify-content: space-between; }
+}

@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dish · Thai Food</title>
+  <title>Menu and Prices · Thai Food</title>
+  <meta name="description" content="Typical prices in Thai baht for popular Thai dishes, grouped by category, so you know what to expect when you order.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -13,16 +15,24 @@
       <a class="brand" href="index.html">Thai Food <small lang="th">อาหารไทย</small></a>
       <nav class="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
-        <a href="dishes.html" aria-current="page">Dishes</a>
-        <a href="menu.html">Menu</a>
+        <a href="dishes.html">Dishes</a>
+        <a href="menu.html" aria-current="page">Menu</a>
         <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <div class="container" id="dish-detail">
-      <noscript><p>This page needs JavaScript to show the dish.</p></noscript>
+    <div class="container">
+      <div class="page-head">
+        <h1>Menu and prices</h1>
+        <p>What a typical plate costs in Thai baht (฿). Prices are rough guides for an ordinary local restaurant or street stall; tourist areas, hotels and big cities charge more.</p>
+      </div>
+
+      <nav class="menu-jump" aria-label="Jump to a category" id="menu-jump"></nav>
+      <div id="menu"></div>
+
+      <p class="menu-note">Prices are approximate and change from place to place. Always check the menu or ask before you order. <a href="about.html">Learn more</a></p>
     </div>
   </main>
 
@@ -35,5 +45,6 @@
 
   <script src="dishes.js"></script>
   <script src="app.js"></script>
+  <script src="menu.js"></script>
 </body>
 </html>
