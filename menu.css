@@ -1,30 +1,32 @@
-/* Menu page. Builds on the variables in style.css. */
+/* Menu page, on the dark canvas. Builds on the variables in style.css. */
 
 .menu-jump {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 20px 0 8px;
+  margin: 40px 0 8px;
 }
 .menu-jump a {
-  padding: 6px 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--card);
-  color: var(--ink);
+  padding: 6px 12px;
+  border: 1px solid var(--white);
+  border-radius: var(--radius);
+  color: var(--cream);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
 }
-.menu-jump a:hover { border-color: var(--orange); color: var(--chili); }
+.menu-jump a:hover { background: var(--lemon); border-color: var(--lemon); color: var(--black-olive); }
 
-.menu-section { margin-top: 36px; scroll-margin-top: 16px; }
+.menu-section { margin-top: 48px; scroll-margin-top: 16px; }
 .menu-section h2 {
   margin: 0 0 8px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--turmeric);
-  font-family: var(--font-display);
-  color: var(--chili);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--sage);
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cream);
 }
 
 .menu-list { list-style: none; margin: 0; padding: 0; }
@@ -33,51 +35,54 @@
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
 }
 .menu-main {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 2px 12px;
+  gap: 2px 16px;
   min-width: 0;
 }
 .menu-name {
-  font-weight: 700;
-  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cream);
   text-decoration: none;
 }
-.menu-name:hover { color: var(--chili); text-decoration: underline; }
+.menu-name:hover { color: var(--lemon); text-decoration: underline; }
+.menu-main .thai { opacity: 0.75; }
 .menu-main .spice { flex-basis: 100%; }
 
 .menu-dots {
   flex: 1 1 24px;
   align-self: flex-end;
   margin-bottom: 0.4em;
-  border-bottom: 2px dotted var(--line);
+  border-bottom: 1px dotted rgba(219, 226, 220, 0.45);
   min-width: 24px;
 }
 
 .menu-price {
   flex: none;
   text-align: right;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--chili);
+  font-weight: 500;
+  font-size: 1.375rem;
+  color: var(--lemon);
   font-variant-numeric: tabular-nums;
 }
 .menu-unit {
   display: block;
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--ink-soft);
+  color: var(--cream);
+  opacity: 0.75;
 }
 
 .menu-note {
-  margin: 32px 0 0;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
+  margin: 48px 0 0;
+  opacity: 0.85;
+  font-size: 0.9375rem;
+  max-width: 40rem;
 }
 
 @media (max-width: 520px) {

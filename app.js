@@ -34,6 +34,7 @@ function cardHtml(dish) {
         <p class="thai" lang="th">${escapeHtml(dish.thai)}</p>
         <p class="pron">${escapeHtml(dish.pronunciation)}</p>
         ${spiceHtml(dish.spice)}
+        <span class="ghost-link">View dish</span>
       </div>
     </a>`;
 }
@@ -134,45 +135,70 @@ function initDish() {
   if (!dish) {
     document.title = "Dish not found · Thai Food";
     root.innerHTML = `
-      <div class="not-found">
-        <h1>Dish not found</h1>
-        <p>We couldn’t find a dish${id ? ` called “${escapeHtml(id)}”` : ""}.</p>
-        <p><a class="button" href="dishes.html">Browse all dishes</a></p>
-      </div>`;
+      <section class="band dark">
+        <div class="container not-found">
+          <h1>Dish not found</h1>
+          <p>We couldn’t find a dish${id ? ` called “${escapeHtml(id)}”` : ""}.</p>
+          <p><a class="button" href="dishes.html">Browse all dishes</a></p>
+        </div>
+      </section>`;
     return;
   }
 
   document.title = `${dish.english} (${dish.thai}) · Thai Food`;
   root.innerHTML = `
-    <p class="back"><a href="dishes.html">← All dishes</a></p>
-    <div class="detail-head">
-      <img src="${escapeHtml(dish.image)}" alt="${escapeHtml(dish.english)} (placeholder image)" width="600" height="400">
-      <div>
-        <span class="pill">${escapeHtml(dish.category)}</span>
-        <h1>${escapeHtml(dish.english)}</h1>
-        <p class="thai thai-large" lang="th">${escapeHtml(dish.thai)}</p>
-        <p class="pron">Say it: <strong>${escapeHtml(dish.pronunciation)}</strong></p>
-        ${spiceHtml(dish.spice)}
-        <p class="spice-note">${escapeHtml(dish.spiceNote)}</p>
+    <section class="band dark">
+      <div class="container">
+        <p class="back"><a href="dishes.html">← All dishes</a></p>
+        <div class="detail-head">
+          <img src="${escapeHtml(dish.image)}" alt="${escapeHtml(dish.english)} (placeholder image)" width="600" height="400">
+          <div>
+            <span class="pill">${escapeHtml(dish.category)}</span>
+            <h1>${escapeHtml(dish.english)}</h1>
+            <p class="thai thai-large" lang="th">${escapeHtml(dish.thai)}</p>
+            <p class="pron">Say it: <strong>${escapeHtml(dish.pronunciation)}</strong></p>
+            ${spiceHtml(dish.spice)}
+            <p class="spice-note">${escapeHtml(dish.spiceNote)}</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <section class="detail-section">
-      <h2>Taste</h2>
-      <p>${escapeHtml(dish.taste)}</p>
     </section>
-    <section class="detail-section">
-      <h2>Main ingredients</h2>
-      <ul class="tags">${dish.ingredients.map((i) => `<li>${escapeHtml(i)}</li>`).join("")}</ul>
-    </section>
-    <section class="detail-section">
-      <h2>Culture</h2>
-      <p>${escapeHtml(dish.culture)}</p>
-    </section>
-    <section class="detail-section">
-      <h2>How to order and eat it</h2>
-      <p>${escapeHtml(dish.howToOrder)}</p>
+    <section class="band cream">
+      <div class="container">
+        <section class="detail-section">
+          <h2>Taste</h2>
+          <p>${escapeHtml(dish.taste)}</p>
+        </section>
+        <section class="detail-section">
+          <h2>Main ingredients</h2>
+          <ul class="tags">${dish.ingredients.map((i) => `<li>${escapeHtml(i)}</li>`).join("")}</ul>
+        </section>
+        <section class="detail-section">
+          <h2>Culture</h2>
+          <p>${escapeHtml(dish.culture)}</p>
+        </section>
+        <section class="detail-section">
+          <h2>How to order and eat it</h2>
+          <p>${escapeHtml(dish.howToOrder)}</p>
+        </section>
+      </div>
     </section>`;
+}
+
+// ---- Back to top (appears after scrolling, on every page) ----
+function initToTop() {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "to-top";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>`;
+  btn.addEventListener("click", () => window.scrollTo({ top: 0 }));
+  document.body.appendChild(btn);
+  const update = () => btn.classList.toggle("visible", window.scrollY > 400);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 }
 
 initDishes();
 initDish();
+initToTop();
